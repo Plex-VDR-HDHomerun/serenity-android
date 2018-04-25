@@ -8,22 +8,29 @@ import org.greenrobot.eventbus.EventBus;
 import us.nineworlds.serenity.common.android.injection.InjectingJob;
 import us.nineworlds.serenity.common.media.model.IMediaContainer;
 import us.nineworlds.serenity.common.rest.SerenityClient;
-import us.nineworlds.serenity.events.MainMenuEvent;
+import us.nineworlds.serenity.events.TVCategorySecondaryEvent;
 
-public class MainMenuRetrievalJob extends InjectingJob {
+public class LiveTVCategorySecondaryJob extends InjectingJob {
+
+  @Inject EventBus eventBus;
 
   @Inject SerenityClient client;
 
-  @Inject EventBus eventBus;
+  String key;
+  String category;
+
+  public TVCategorySecondaryJob(@NonNull String key, @NonNull String category) {
+    this.key = key;
+    this.category = category;
+  }
 
   @Override public void onAdded() {
 
   }
 
   @Override public void onRun() throws Throwable {
-    IMediaContainer mediaContainer = client.retrieveSectionsTv();
-    MainMenuEvent event = new MainMenuEvent(mediaContainer);
-    eventBus.post(event);
+    IMediaContainer mediaContainer = client.retrieveSectionsTv(key, category);
+    eventBus.post(new TVCategorySecondaryEvent(mediaContainer, key, category));
   }
 
   @Override protected void onCancel(int cancelReason, @Nullable Throwable throwable) {

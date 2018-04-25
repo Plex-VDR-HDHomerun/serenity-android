@@ -135,9 +135,9 @@ public class PlexappClient {
    * @return MediaContainer the media container for the library
    * @throws Exception
    */
-  public MediaContainer retrieveSections() throws Exception {
+  public MediaContainer retrieveSectionsTv() throws Exception {
     reinitIfNecessary();
-    Call<MediaContainer> call = mediaContainerclient.retrieveSections();
+    Call<MediaContainer> call = mediaContainerclient.retrieveSectionsTv();
     return call.execute().body();
   }
 
@@ -149,9 +149,9 @@ public class PlexappClient {
    * @return MediaContainer the media container for the library
    * @throws Exception
    */
-  public MediaContainer retrieveSections(String key) throws Exception {
+  public MediaContainer retrieveSectionsTv(String key) throws Exception {
     reinitIfNecessary();
-    Call<MediaContainer> call = mediaContainerclient.retrieveSections(key);
+    Call<MediaContainer> call = mediaContainerclient.retrieveSectionsTv(key);
     return call.execute().body();
   }
 
@@ -162,15 +162,15 @@ public class PlexappClient {
    * @return MediaContainer
    * @throws Exception
    */
-  public MediaContainer retrieveSections(String key, String category) throws Exception {
+  public MediaContainer retrieveSectionsTv(String key, String category) throws Exception {
     reinitIfNecessary();
-    Call<MediaContainer> call = mediaContainerclient.retrieveSections(key, category);
+    Call<MediaContainer> call = mediaContainerclient.retrieveSectionsTv(key, category);
     return call.execute().body();
   }
 
-  public MediaContainer retrieveSections(String key, String category, String secondaryCategory) throws Exception {
+  public MediaContainer retrieveSectionsTv(String key, String category, String secondaryCategory) throws Exception {
     reinitIfNecessary();
-    Call<MediaContainer> call = mediaContainerclient.retrieveSections(key, category, secondaryCategory);
+    Call<MediaContainer> call = mediaContainerclient.retrieveSectionsTv(key, category, secondaryCategory);
     return call.execute().body();
   }
 

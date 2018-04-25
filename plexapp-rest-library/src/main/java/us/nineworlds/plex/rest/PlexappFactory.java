@@ -82,8 +82,8 @@ public class PlexappFactory implements SerenityClient {
    * @return MediaContainer the media container for the library
    * @throws Exception
    */
-  @Override public IMediaContainer retrieveSections() throws Exception {
-    return client.retrieveSections();
+  @Override public IMediaContainer retrieveSectionsTv() throws Exception {
+    return client.retrieveSectionsTv();
   }
 
   /**
@@ -94,8 +94,8 @@ public class PlexappFactory implements SerenityClient {
    * @return MediaContainer the media container for the library
    * @throws Exception
    */
-  @Override public IMediaContainer retrieveSections(String key) throws Exception {
-    return client.retrieveSections(key);
+  @Override public IMediaContainer retrieveSectionsTv(String key) throws Exception {
+    return client.retrieveSectionsTv(key);
   }
 
   /**
@@ -105,16 +105,16 @@ public class PlexappFactory implements SerenityClient {
    * @return MediaContainer
    * @throws Exception
    */
-  @Override public IMediaContainer retrieveSections(String key, String category) throws Exception {
-    return client.retrieveSections(key, category);
+  @Override public IMediaContainer retrieveSectionsTv(String key, String category) throws Exception {
+    return client.retrieveSectionsTv(key, category);
   }
 
-  @Override public IMediaContainer retrieveSections(String key, String category, String secondaryCategory)
+  @Override public IMediaContainer retrieveSectionsTv(String key, String category, String secondaryCategory)
       throws Exception {
-    return client.retrieveSections(key, category, secondaryCategory);
+    return client.retrieveSectionsTv(key, category, secondaryCategory);
   }
 
-  @Override public IMediaContainer retrieveSeasons(String key) throws Exception {
+  @Override public IMediaContainer retrieveSeasonsTv(String key) throws Exception {
     return client.retrieveSeasons(key);
   }
 
