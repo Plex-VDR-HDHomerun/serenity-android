@@ -71,8 +71,8 @@ public class PlexappFactory implements SerenityClient {
    * @return MediaContainer the media container for the library
    * @throws Exception
    */
-  @Override public IMediaContainer retrieveLibrary() throws Exception {
-    return client.retrieveLibrary();
+  @Override public IMediaContainer retrieveLibraryTv() throws Exception {
+    return client.retrieveLibraryTv();
   }
 
   /**

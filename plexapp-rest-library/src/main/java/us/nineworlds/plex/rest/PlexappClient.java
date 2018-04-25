@@ -121,9 +121,9 @@ public class PlexappClient {
    * @return MediaContainer the media container for the library
    * @throws Exception
    */
-  public MediaContainer retrieveLibrary() throws Exception {
+  public MediaContainer retrieveLibraryTv() throws Exception {
     reinitIfNecessary();
-    Call<MediaContainer> call = mediaContainerclient.retrieveLibrary();
+    Call<MediaContainer> call = mediaContainerclient.retrieveLibraryTv();
     MediaContainer mediaContainer = call.execute().body();
     return mediaContainer;
   }
