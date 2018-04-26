@@ -119,7 +119,7 @@ public class TVCategorySpinnerOnItemSelectedListener extends BaseInjector
           || item.getCategory().equals("recentlyViewed")
           || item.getCategory().equals("onDeck")) {
         Intent i = new Intent(context, EpisodeBrowserActivity.class);
-        i.putExtra("key", "/library/sections/" + key + "/" + item.getCategory());
+        i.putExtra("key", "/tv.plex.providers.epg.onconnect:23/sections/" + key + "/" + item.getCategory());
         context.startActivityForResult(i, 0);
       } else {
         setupImageGallery(item);
@@ -150,7 +150,7 @@ public class TVCategorySpinnerOnItemSelectedListener extends BaseInjector
         || item.getCategory().equals("onDeck")) {
       Activity context = getActivity(secondarySpinner.getContext());
       Intent i = new Intent(context, EpisodeBrowserActivity.class);
-      i.putExtra("key", "/library/sections/" + key + "/" + item.getCategory());
+      i.putExtra("key", "/tv.plex.providers.epg.onconnect:23/sections/" + key + "/" + item.getCategory());
       context.startActivityForResult(i, 0);
     } else {
       secondarySpinner.setVisibility(View.INVISIBLE);

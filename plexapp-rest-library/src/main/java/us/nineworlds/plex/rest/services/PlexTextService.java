@@ -7,13 +7,13 @@ import retrofit2.http.Query;
 
 public interface PlexTextService {
 
-    @GET(":/scrobble?identifier=com.plexapp.plugins.library")
+    @GET(":/scrobble?identifier=tv.plex.providers.epg.onconnect")
     Call<String> watched(@Query("key") String key);
 
-    @GET(":/unscrobble?identifier=com.plexapp.plugins.library")
+    @GET(":/unscrobble?identifier=tv.plex.providers.epg.onconnect")
     Call<String> unwatched(@Query("key") String key);
 
-    @GET(":/progress?identifier=com.plexapp.plugins.library")
+    @GET(":/progress?identifier=tv.plex.providers.epg.onconnect")
     Call<String> progress(@Query("key") String key,
                           @Query("time") String offset);
 }

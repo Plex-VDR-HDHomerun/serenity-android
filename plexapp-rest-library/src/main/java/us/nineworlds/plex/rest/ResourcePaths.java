@@ -34,7 +34,7 @@ import us.nineworlds.plex.rest.config.IConfiguration;
  */
 public class ResourcePaths {
 
-  public static final String LIBRARY_PATH = "/library/";
+  public static final String LIBRARY_PATH = "tv.plex.providers.epg.onconnect:23/";
   public static final String SECTIONS_PATH = LIBRARY_PATH + "sections/";
   public static final String ROOT_PATH = "/";
 
@@ -89,16 +89,16 @@ public class ResourcePaths {
   }
 
   public String getWatchedUrl(String key) {
-    return getRoot() + ":/scrobble?key=" + key + "&identifier=com.plexapp.plugins.library";
+    return getRoot() + ":/scrobble?key=" + key + "&identifier=tv.plex.providers.epg.onconnect";
   }
 
   public String getUnwatchedUrl(String key) {
-    return getRoot() + ":/unscrobble?key=" + key + "&identifier=com.plexapp.plugins.library";
+    return getRoot() + ":/unscrobble?key=" + key + "&identifier=tv.plex.providers.epg.onconnect";
   }
 
   public String getProgressUrl(String key, String offset) {
     String offseturl =
-        getRoot() + ":/progress?key=" + key + "&identifier=com.plexapp.plugins.library" + "&time=" + offset;
+        getRoot() + ":/progress?key=" + key + "&identifier=tv.plex.providers.epg.onconnect" + "&time=" + offset;
     return offseturl;
   }
 
