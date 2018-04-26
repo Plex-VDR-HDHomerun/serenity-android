@@ -67,12 +67,12 @@ public class PlexappFactory implements SerenityClient {
   /**
    * This retrieves the available libraries.  This can include such
    * things as Movies, and TV shows.
-   *
+   * @param key the section key
    * @return MediaContainer the media container for the library
    * @throws Exception
    */
-  @Override public IMediaContainer retrieveLibraryTv() throws Exception {
-    return client.retrieveLibraryTv();
+  @Override public IMediaContainer retrieveLibraryTv(String key) throws Exception {
+    return client.retrieveLibraryTv(key);
   }
 
   /**
@@ -114,7 +114,7 @@ public class PlexappFactory implements SerenityClient {
     return client.retrieveSectionsTv(key, category, secondaryCategory);
   }
 
-  @Override public IMediaContainer retrieveSeasonsTv(String key) throws Exception {
+  @Override public IMediaContainer retrieveSeasons(String key) throws Exception {
     return client.retrieveSeasons(key);
   }
 

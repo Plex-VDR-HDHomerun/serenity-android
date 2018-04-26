@@ -121,9 +121,9 @@ public class PlexappClient {
    * @return MediaContainer the media container for the library
    * @throws Exception
    */
-  public MediaContainer retrieveLibraryTv() throws Exception {
+  public MediaContainer retrieveLibraryTv(String key) throws Exception {
     reinitIfNecessary();
-    Call<MediaContainer> call = mediaContainerclient.retrieveLibraryTv();
+    Call<MediaContainer> call = mediaContainerclient.retrieveLibraryTv(key);
     MediaContainer mediaContainer = call.execute().body();
     return mediaContainer;
   }
@@ -200,13 +200,13 @@ public class PlexappClient {
 
   public MediaContainer searchMovies(String key, String query) throws Exception {
     reinitIfNecessary();
-    Call<MediaContainer> call = mediaContainerclient.movieSearch(key, query);
+    Call<MediaContainer> call = mediaContainerclient.movieSearchTv(key, query);
     return call.execute().body();
   }
 
   public MediaContainer searchEpisodes(String key, String query) throws Exception {
     reinitIfNecessary();
-    Call<MediaContainer> call = mediaContainerclient.episodeSearch(key, query);
+    Call<MediaContainer> call = mediaContainerclient.episodeSearchTv(key, query);
     MediaContainer mediaContainer = call.execute().body();
     return mediaContainer;
   }

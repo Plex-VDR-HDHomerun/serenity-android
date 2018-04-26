@@ -10,40 +10,40 @@ import us.nineworlds.plex.rest.model.impl.MediaContainer;
 
 public interface PlexMediaContainerService {
 
-    @GET("/")
+    @GET("/tv.plex.providers.epg.onconnect")
     Call<MediaContainer> retrieveRoot();
 
-    @GET("tv.plex.providers.epg.onconnect:23")
-    Call<MediaContainer> retrieveLibraryTv();
+    @GET("tv.plex.providers.epg.onconnect{key}")
+    Call<MediaContainer> retrieveLibraryTv(@Path("key") String key);
 
-    @GET("tv.plex.providers.epg.onconnect:23/sections")
+    @GET("/{key}/sections")
     Call<MediaContainer> retrieveSectionsTv();
 
-    @GET("tv.plex.providers.epg.onconnect:23/sections/{key}")
+    @GET("/sections/{key}")
     Call<MediaContainer> retrieveSectionsTv(@Path("key") String key);
 
-    @GET("tv.plex.providers.epg.onconnect:23/sections/{key}/{category}")
+    @GET("/{key}/sections/{key}/{category}")
     Call<MediaContainer> retrieveSectionsTv(@Path("key") String key,
-                                          @Path(value = "category", encoded = true) String category);
+                                            @Path(value = "category", encoded = true) String category);
 
-     @GET("tv.plex.providers.epg.onconnect:23/sections/{key}/{category}/{secondaryCategory}")
+     @GET("/{key}/sections/{key}/{category}/{secondaryCategory}")
     Call<MediaContainer> retrieveSectionsTv(@Path("key") String key,
-                                          @Path(value = "category", encoded = true)  String category,
-                                          @Path(value = "secondaryCategory", encoded = true) String secondaryCategory);
+                                            @Path(value = "category", encoded = true) String category,
+                                            @Path(value = "secondaryCategory", encoded = true) String secondaryCategory);
 
     @GET("{urlPath}")
     Call<MediaContainer> retrieveItemByUrlPath(@Path(value = "urlPath", encoded = true) String key);
 
 
-    @GET("tv.plex.providers.epg.onconnect:23/sections/{key}/search?type=1")
+    @GET("/{key}/sections/{key}/search?type=1")
     Call<MediaContainer> movieSearchTv(@Path("key") String key,
                                     @Query("query") String query);
 
-    @GET("tv.plex.providers.epg.onconnect:23/sections/{key}/search?type=2")
+    @GET("/{key}/sections/{key}/search?type=2")
     Call<MediaContainer> tvShowsSearchTv(@Path("key") String key,
-                              @Query("query") String query);
+                                         @Query("query") String query);
 
-    @GET("tv.plex.providers.epg.onconnect:23/sections/{key}/search?type=4")
+    @GET("/{key}/sections/{key}/search?type=4")
     Call<MediaContainer> episodeSearchTv(@Path("key") String key,
                                        @Query("query") String query);
 }
